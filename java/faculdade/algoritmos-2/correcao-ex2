@@ -1,0 +1,44 @@
+package Programas;
+
+import javax.swing.*;
+
+public class CorrecaoExer2 {
+    public static void main(String[] args) {
+        double[] notas = new double[10];
+        double soma=0,maior=0,menor=10;
+        int aprovados=0,reprovados=0;
+
+        for (int i=0;i<notas.length;i++){
+            notas[i] = Double.parseDouble(
+                    JOptionPane.showInputDialog(
+                            "Digite a nota do aluno "+(i+1)+": "
+                    )
+            );
+            soma += notas[i];
+            if(notas[i]>=6.0){
+                aprovados++;
+            }else{
+                reprovados++;
+            }
+            if(notas[i] > maior){
+                maior = notas[i];
+            }
+            if(notas[i]< menor){
+                menor = notas[i];
+            }
+        }
+        //Calculando a MÉDIA
+        double media = soma / notas.length;
+        String resultado = "NOTAS DA TURMA\n\n";
+        for (int i=0;i<notas.length;i++){
+            resultado += "Aluno "+(i+1)+": "+notas[i]+"\n";
+        }
+        resultado +="\n========================================\n";
+        resultado +="Média da turma: "+media+"\n";
+        resultado +="Quantidade de aprovados: "+aprovados+"\n";
+        resultado +="Quantidade de reprovados: "+reprovados+"\n";
+        resultado +="Maior nota: "+maior+"\n";
+        resultado +="Menor nota: "+menor+"\n";
+
+        JOptionPane.showMessageDialog(null,resultado);
+    }

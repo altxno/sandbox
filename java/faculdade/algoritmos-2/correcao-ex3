@@ -1,0 +1,83 @@
+package Programas;
+
+import javax.swing.*;
+
+public class CorrecaoExer3 {
+    public static void main(String[] args) {
+        String[] produtos = new String[8];
+        int[] estoque = new int[8];
+
+        for (int i=0;i<produtos.length;i++){
+            produtos[i] = JOptionPane.showInputDialog(
+                    "Digite o nome do produto "+(i+1)+": ");
+            estoque[i] = Integer.parseInt(JOptionPane.showInputDialog(
+                    "Digite qa quantidade em estoque de "+produtos[i]+": "));
+        }
+       String lista = "ESTOQUE DA LOJA \n\n";
+        for (int i=0;i<produtos.length;i++){
+            lista += "Produto: "+produtos[i]+
+                    " | Estoque: "+estoque[i]+"\n";
+        }
+        lista += "\nPRODUTOS COM ESTOQUE BAIXO\n";
+        boolean existeEstoqueBaixo = false;
+        for (int i=0;i<produtos.length;i++){
+            if(estoque[i] < 5){
+                lista += produtos[i]+"  -  "+estoque[i]+" unidades.\n";
+                existeEstoqueBaixo = true;
+            }
+        }
+        if (!existeEstoqueBaixo){
+            lista += "Nenhum produto com estoque baixo.\n";
+        }
+        int maiorEstoque = estoque[0];
+        int indiceMaior = 0;
+
+        for (int i=0;i<produtos.length;i++){
+            if(estoque[i] > maiorEstoque){
+                maiorEstoque = estoque[i];
+                indiceMaior = i;
+            }
+        }
+        lista += "\nPRODUTO COM MAIOR ESTOQUE\n";
+        lista += produtos[indiceMaior]+"  -  "+maiorEstoque+" unidades.\n";
+
+        JOptionPane.showMessageDialog(null,lista);
+
+        String produtoConsulta = JOptionPane.showInputDialog("Digite o nome do produto que deseja consultar: ");
+        boolean encontrado = false;
+
+        for (int i=0;i<produtos.length;i++){
+            if (produtos[i].equalsIgnoreCase(produtoConsulta)){
+                JOptionPane.showMessageDialog(null,"Produto: "+
+                        produtos[i]+"\nQuantidade disponível: "+estoque[i]);
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado){
+            JOptionPane.showMessageDialog(null,"Produto não encontrado");
+        }
+        String produtoVenda = JOptionPane.showInputDialog("" +
+                "Digite o nome do produto que deseja vender: ");
+        encontrado = false;
+        for (int i=0;i<produtos.length;i++){
+            if (produtos[i].equalsIgnoreCase(produtoVenda)){
+                encontrado = true;
+                int quantidadeVenda = Integer.parseInt(JOptionPane.showInputDialog(
+                        "Produto: "+produtos[i]
+                        +"\nEstoque atual: "+estoque[i]
+                        +"\n\nDigite a quantidade que deseja vender: "
+                ));
+                if(quantidadeVenda <= estoque[i]){
+                    estoque[i] = estoque[i] - quantidadeVenda;
+                    JOptionPane.showMessageDialog(null,
+                            "Venda realizada com sucesso!!!\n"+
+                                    "Produto: "+produtos[i]
+                                    +"\nQuantidade vendida: "+quantidadeVenda
+                                    +"\nEstoque restante: "+estoque[i]);
+                }else {
+                    JOptionPane.showMessageDialog(null,
+                            "Não foi possível realizar a venda.\n"
+                                    +"Estoque insuficiente!");
+                }
+                break;

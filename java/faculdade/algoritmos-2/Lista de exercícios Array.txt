@@ -1,0 +1,148 @@
+1. Controle de gastos mensais
+
+Uma pessoa quer controlar seus gastos durante uma semana. Crie um programa em Java que armazene em um vetor os gastos realizados em 7 dias.
+
+O programa deve:
+
+Ler o valor gasto em cada dia.
+Exibir todos os gastos registrados.
+Calcular e mostrar o total gasto na semana.
+Calcular e mostrar o gasto médio por dia.
+Informar qual foi o dia em que ocorreu o maior gasto.
+
+Exemplo de entrada:
+
+Segunda: 35.50
+Terça: 42.00
+Quarta: 18.75
+Quinta: 50.00
+Sexta: 27.30
+Sábado: 80.00
+Domingo: 45.00
+
+
+
+2. Notas de uma turma
+
+Um professor precisa analisar o desempenho de uma turma. Crie um programa que armazene em um vetor as notas de 10 alunos.
+
+O programa deve:
+
+Ler as 10 notas.
+Exibir todas as notas.
+Calcular a média da turma.
+Informar quantos alunos foram aprovados (nota maior ou igual a 6,0).
+Informar quantos alunos foram reprovados.
+Exibir a maior e a menor nota da turma.
+
+3. Controle de estoque de uma loja
+
+Uma pequena loja possui 8 produtos e deseja controlar a quantidade disponível de cada um.
+
+Crie dois vetores:
+
+Um vetor contendo o nome dos produtos.
+Um vetor contendo a quantidade disponível em estoque.
+
+O programa deve:
+
+Cadastrar os 8 produtos e suas respectivas quantidades.
+Exibir uma lista contendo produto e quantidade.
+Informar quais produtos estão com estoque baixo (quantidade menor que 5).
+Informar qual produto possui a maior quantidade em estoque.
+Permitir que o usuário informe o nome de um produto e consultar sua quantidade disponível.
+
+Exemplo:
+
+Produto: Arroz       Estoque: 12
+Produto: Feijão      Estoque: 3
+Produto: Macarrão    Estoque: 8
+...
+
+Desafio adicional:
+Criar uma opção para realizar uma venda, diminuindo a quantidade do produto no estoque.
+
+4. Temperatura de uma cidade durante a semana
+
+Uma estação meteorológica registra a temperatura de uma cidade durante 7 dias, realizando medições 3 vezes por dia: manhã, tarde e noite.
+
+Crie uma matriz 7 x 3, onde:
+
+Cada linha representa um dia.
+Cada coluna representa um período do dia:
+Coluna 0 → manhã
+Coluna 1 → tarde
+Coluna 2 → noite
+
+O programa deve:
+
+Ler todas as temperaturas.
+Exibir a matriz de temperaturas.
+Calcular a temperatura média da semana.
+Informar a maior temperatura registrada e em qual dia/período ela ocorreu.
+Calcular a média de temperatura de cada dia.
+
+Exemplo:
+
+             Manhã    Tarde    Noite
+Segunda       20.5     28.3     23.1
+Terça         19.8     27.5     22.4
+Quarta        21.0     30.2     24.0
+...
+
+
+5. Vendas de uma loja
+
+Uma loja possui 4 vendedores e trabalha com 5 dias úteis. O gerente deseja analisar a quantidade de vendas realizadas.
+
+Crie uma matriz 4 x 5, onde:
+
+Cada linha representa um vendedor.
+Cada coluna representa um dia da semana.
+Cada posição contém a quantidade de vendas realizadas.
+
+O programa deve:
+
+Ler os dados da matriz.
+Exibir a quantidade de vendas de cada vendedor por dia.
+Calcular o total de vendas de cada vendedor.
+Calcular o total de vendas de cada dia.
+Informar qual vendedor realizou mais vendas durante a semana.
+Informar qual foi o dia com maior quantidade de vendas.
+
+Exemplo:
+
+             Seg  Ter  Qua  Qui  Sex
+Vendedor 1    10   15   12   18   20
+Vendedor 2     8   11   14   15   17
+Vendedor 3    20   18   16   22   25
+Vendedor 4     5    9   10   12   14
+
+6. Ocupação de um estacionamento
+
+Um estacionamento possui 5 fileiras com 6 vagas cada, totalizando 30 vagas.
+
+Crie uma matriz 5 x 6 para representar as vagas:
+
+0 → vaga livre
+1 → vaga ocupada
+
+O programa deve:
+
+Ler a situação de cada vaga.
+Exibir o mapa do estacionamento.
+Informar o número total de vagas livres.
+Informar o número total de vagas ocupadas.
+Calcular a porcentagem de ocupação do estacionamento.
+Perguntar ao usuário uma posição (linha e coluna) e informar se aquela vaga está livre ou ocupada.
+
+Exemplo:
+
+Estacionamento:
+
+
+0 1 1 0 0 1
+1 1 0 0 1 1
+0 0 1 1 1 0
+1 0 0 1 0 0
+1 1 1 0 1 0

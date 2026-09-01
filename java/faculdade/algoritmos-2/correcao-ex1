@@ -1,0 +1,39 @@
+package PacoteJava;
+
+import java.util.Scanner;
+
+public class Exer1 {
+    public static void main (String[] args){
+
+        Scanner leia = new Scanner(System.in);
+
+        String[] dias = {"Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"};
+        double[] gastos = new double[7];
+        double gastosSemana=0,mediaGastos,maiorGasto=0;
+        int diaMaiorGasto=0;
+
+        for (int i=0;i<7;i++){
+            System.out.println("\nEntre com o gasto da "+dias[i]+" : ");
+            gastos[i] = leia.nextDouble();
+            gastosSemana += gastos[i];
+
+            if(gastos[i] > maiorGasto){
+                maiorGasto = gastos[i];
+                diaMaiorGasto = i;
+            }
+        }
+        for (int i=0;i<7;i++){
+            System.out.println("\nDia da semana: "+dias[i]+" gastou: "+gastos[i]);
+
+        }
+        mediaGastos = gastosSemana / 7;
+
+        System.out.println("\nTotal de gastos na semana: "+gastosSemana);
+        System.out.println("\nMédia por dia da semana: "+mediaGastos);
+        System.out.printf("Maior gasto foi: %s",dias[diaMaiorGasto]);
+
+
+
+
+    }
+}
