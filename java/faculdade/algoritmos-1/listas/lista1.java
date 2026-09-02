@@ -95,9 +95,9 @@ void ex1(){
     } else if (x % 5 == 0) {
         divisivel = true;
     }
-    System.out.println(par == true ? "É par" : "É ímpar");
-    System.out.println(multiplo == true ? "É múltiplo de 3" : "Não é múltiplo de 3");
-    System.out.println(divisivel == true ? "É divisível por 5":"Não é divisível por 5");
+    System.out.println(par ? "É par" : "É ímpar");
+    System.out.println(multiplo ? "É múltiplo de 3" : "Não é múltiplo de 3");
+    System.out.println(divisivel ? "É divisível por 5":"Não é divisível por 5");
 
     System.out.println("Pressione ENTER para continuar");
     input.nextLine();
