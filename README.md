@@ -1,14 +1,14 @@
 # sandbox
 
-Repositório com códigos e exercícios práticos, organizados por linguagem.
+Repositório com códigos e exercícios práticos, organizados por topico.
 
 ## Estrutura
 
-Cada linguagem é dividida em:
+Cada tema é dividido em:
 - `faculdade/` — exercícios, listas e projetos das disciplinas cursadas
-- `externo/` — cursos, estudos e projetos pessoais fora da grade curricular
+- `pessoal/` — cursos, estudos e projetos pessoais fora da grade curricular
 
 
 ## Sobre
 
-Materiais brutos (slides, PDFs, trabalhos escritos, pesquisas) ficam fora deste repositório — aqui só entra código.
+Materiais brutos (slides, PDFs, trabalhos escritos, pesquisas) ficam fora deste repositório.
