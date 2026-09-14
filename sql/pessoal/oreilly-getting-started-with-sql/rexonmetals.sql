@@ -1,5 +1,7 @@
 -- Devido a arquitetura monobanco do SQLite, não é necessário "use <nomedobanco>"
 
+select name, type from sqlite_master;
+
 select * from customer;
 select customer_id, name from customer;
 select * from product;
