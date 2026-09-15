@@ -23,3 +23,7 @@ select
     zip
 from customer;
 
+PRAGMA table_info(PRODUCT);
+PRAGMA table_info(CUSTOMER);
+PRAGMA table_info(CUSTOMER_ORDER);
+
