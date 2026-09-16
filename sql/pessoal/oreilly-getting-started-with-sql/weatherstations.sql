@@ -70,6 +70,87 @@ or snow_depth > 0;
 
 PRAGMA table_info(STATION_DATA);
 
--- ***********************************************************************************
+-- *****************************************************************************
 
+select count(*) as record_count from station_data
+where tornado;
 
+select year, month,
+       count(*) as record_count
+from station_data
+where tornado is true
+group by year, month;
+
+select year, month,
+       count(*) as record_count
+from station_data
+where tornado is true
+-- 1 e 2 equivalem a posição da coluna no select
+group by 1, 2
+order by 1 desc, 2;
+
+select count(snow_depth) from station_data;
+
+select count(*) from station_data
+where snow_depth is null;
+
+-- temperatura media de cada mes a partir de 200
+-- e agrupar por mes calcular media em cima do mes
+
+select * from station_data;
+
+select
+    month,
+    avg(temperature) as avg_temperature
+from station_data
+where year >= 2000
+group by 1
+order by 1;
+
+select
+    year,
+    sum(snow_depth) as total_snow
+from station_data
+where year >= 2000
+group by year;
+
+select
+    year,
+    sum(snow_depth) as total_snow,
+    max(precipitation) as max_precipitation
+from station_data
+where year >= 2000
+group by year;
+
+select
+    year,
+    sum(precipitation) as tornado_precipitation
+from station_data
+where tornado
+group by year;
+
+select
+    year,
+    sum(precipitation) as total_precipitation
+from station_data
+group by year
+having total_precipitation > 30;
+
+select report_code, year, month, day, wind_speed,
+case
+    when wind_speed >= 40 then 'HIGH'
+    when wind_speed >= 30 then 'HIGHMODERATE'
+    else 'LOW'
+end as wind_severity
+from station_data;
+
+select
+    year,
+    case
+        when wind_speed >= 40 then 'HIGH'
+        when wind_speed >= 30 then 'MODERATE'
+        else 'LOW'
+    end as wind_severity,
+    count(*) as record_count
+from station_data
+group by 1, 2;
