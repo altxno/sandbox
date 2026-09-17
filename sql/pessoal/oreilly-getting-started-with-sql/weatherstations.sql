@@ -154,3 +154,29 @@ select
     count(*) as record_count
 from station_data
 group by 1, 2;
+
+select
+    year,
+    month,
+    sum(precipitation) as tornado_precipitation
+from station_data
+where tornado
+group by 1, 2;
+
+select
+    year,
+    month,
+    sum(precipitation) as tornado_precipitation
+from station_data
+where not tornado
+group by 1, 2;
+
+select
+    year,
+    month,
+    sum (case when tornado then precipitation else 0 end) as tornado_precipitation,
+    sum (case when not tornado then precipitation else 0 end) as not_tornado_precipitation
+from station_data
+group by 1, 2;
+
+
