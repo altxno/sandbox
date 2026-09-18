@@ -179,4 +179,14 @@ select
 from station_data
 group by 1, 2;
 
+select year,
+       max(case when not tornado then precipitation else null end) as max_non_tornado_precipitation,
+       max(case when tornado then precipitation else null end) as max_tornado_precipitation
+from station_data
+group by year;
 
+select month,
+       avg(case when rain or hail then temperature else null end) as avg_precipitation_temp,
+       avg(case when not (rain or hail) then temperature else null end) as avg_non_precipitation_temp
+from station_data
+group by 1;
