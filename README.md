@@ -1,6 +1,6 @@
 # sandbox
 
-Repositório com códigos e exercícios práticos, organizados por topico.
+Repositório com códigos e exercícios práticos, organizados por tópicos.
 
 ## Estrutura
 
