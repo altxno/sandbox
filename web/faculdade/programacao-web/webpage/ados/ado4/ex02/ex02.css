@@ -1,0 +1,45 @@
+
+.fundo-azul {
+    background-color: lightblue;
+}
+
+.paragrafo-verde {
+    background-color: lightgreen;
+}
+
+.imagem-repetida-fixa {
+    background-image: url("1.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    height: 1000px;
+    width: 10000px;
+}
+
+.imagem-vertical {
+    background-image: url("1.jpg");
+    background-repeat: repeat-y;
+    height: 1000px;
+    width: 10000px;
+}
+
+.imagem-sem-repeticao {
+    background-image: url("1.jpg");
+    background-repeat: no-repeat;
+    height: 700px;
+    width: 10000px;
+}
+
+.imagem-centralizada {
+    background-image: url("1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+}
+
+.fundo-amarelo {
+    background-color: yellow;
+    background-image: url("1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 600px;
+}

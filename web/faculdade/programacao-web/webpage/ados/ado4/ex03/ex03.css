@@ -1,0 +1,26 @@
+#arial-red {
+    font-family: Arial, sans-serif;
+    color: red;
+}
+
+#times-verde {
+    font-family: Times, sans-serif;
+    font-size: 22px;
+    color: green;
+}
+
+#comico-azul {
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 20px;
+    color: blue;
+    font-style: italic;
+}
+
+#verdana-amarela {
+    font-family: Verdana, sans-serif;
+    color: yellow;
+    font-size: 14px;
+    font-weight: 500;
+    font-weight: bold;
+    /* espessura média + negrito ao mesmo tempo (?)*/
+}
