@@ -201,13 +201,26 @@ order by year desc;
 -- maior velocidade do vento durante tornado
 -- maior velocidade do vento fora de tornado
 
-
+select year,
+       sum(tornado) qtd_tornado,
+       max(case when tornado then wind_speed end) ventoComTornado,
+       max(case when not tornado then wind_speed end) ventoSemTornado
+from station_data
+group by year;
 
 -- 12. Para cada ano, mostre:
 -- precipitação total com tornado
 -- precipitação total sem tornado
 -- diferença entre as duas
 
+select year,
+       sum(case when tornado then precipitation end) prep_with_tornado,
+       sum(case when not tornado then precipitation end) prep_no_tornado,
+       (sum(case
+           when not tornado then precipitation end) - sum(case
+               when tornado then precipitation end)) as diferenca
+from station_data
+group by year;
 
 -- 13. Para cada ano a partir de 2000, mostre:
 -- temperatura média
@@ -215,12 +228,30 @@ order by year desc;
 -- maior velocidade do vento
 -- quantidade de registros com tornado
 
+select year,
+       round(avg(temperature),2) avg_temp,
+       round(total(precipitation),2) total_prep,
+       round(max(wind_speed),2) max_wind,
+       sum(tornado) tornado_rec
+from station_data
+where year >= 2000
+group by 1;
 
 -- 14. Para cada ano e mês, mostre:
 -- precipitação total
 -- precipitação durante tornados
 -- maior velocidade do vento
 -- temperatura média
+
+select year,
+       month,
+       round(total(precipitation),2) total_prep,
+       coalesce(round(sum(case when tornado then precipitation end),2), 'n/a') prep_with_tornado,
+       max(wind_speed) max_wind,
+       round(avg(temperature),1) avg_temp
+from station_data
+group by 1, 2
+order by 1 desc, 2 desc;
 
 
 -- 15. DESAFIO
@@ -235,3 +266,50 @@ order by year desc;
 -- max_wind_speed
 --
 -- Depois, mostre somente os anos cuja precipitação total seja maior que 30.
+
+select year,
+       round(total(precipitation),2) total_prep,
+       round(sum(case when tornado then precipitation end),2) tornado_prep,
+       round(sum(case when not tornado then precipitation end),2) non_tornado_prep,
+       max(case when tornado then precipitation end) max_prep_torn,
+       max(case when not tornado then precipitation end) max_prep_non_torn,
+       round(avg(temperature), 2) avg_temp,
+       max(wind_speed) max_wind
+from station_data
+where year >= 2000
+group by year
+having total(precipitation) > 30
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
