@@ -1,0 +1,9 @@
+a:link{color: #0044cc; text-decoration: none;}
+a:visited{color: #6a1b9a;}
+a:focus{outline: 2px dashed orange;}
+a:active{color: red;}
+a.stl1:hover{color: #e91e63;}
+a.stl2:hover{font-size: 26px;}
+a.stl3:hover{background-color: yellow; color: black;}
+a.stl4:hover{font-family: "Courier New", monospace; font-style: italic;}
+a.stl5:hover{border: 3px solid green; padding: 2px 6px;}
