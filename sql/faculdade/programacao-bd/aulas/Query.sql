@@ -54,7 +54,7 @@ create trigger log_estoque after update on produto for each row
                                              )
     end;
 
-create trig
+
 
 
 
