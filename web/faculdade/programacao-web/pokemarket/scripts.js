@@ -45,29 +45,25 @@ document.addEventListener('DOMContentLoaded', renderizarHeader);
 
 
 // ---------------------------------- VITRINE -----------------------------------------
-async function carregarVitrine() {
-    const vitrine = document.getElementById('vitrine');
-    if (!vitrine) return;
+const catalogoPokemons = [
+    { id: 6, nome: "Charizard", tipo: "Fogo", nivel: 65, preco: 4500, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" },
+    { id: 9, nome: "Blastoise", tipo: "Água", nivel: 60, preco: 4200, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png" },
+    { id: 25, nome: "Pikachu", tipo: "Elétrico", nivel: 45, preco: 3000, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" },
+    { id: 94, nome: "Gengar", tipo: "Fantasma", nivel: 58, preco: 4800, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png" },
+    { id: 130, nome: "Gyarados", tipo: "Água", nivel: 55, preco: 3900, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png" },
+    { id: 143, nome: "Snorlax", tipo: "Normal", nivel: 50, preco: 3500, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" },
+    { id: 149, nome: "Dragonite", tipo: "Dragão", nivel: 70, preco: 6000, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" },
+    { id: 150, nome: "Mewtwo", tipo: "Psíquico", nivel: 85, preco: 9500, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png" },
+    { id: 197, nome: "Umbreon", tipo: "Sombrio", nivel: 48, preco: 3700, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png" },
+    { id: 212, nome: "Scizor", tipo: "Inseto", nivel: 52, preco: 4100, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/212.png" },
+    { id: 248, nome: "Tyranitar", tipo: "Pedra", nivel: 68, preco: 5800, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" },
+    { id: 448, nome: "Lucario", tipo: "Lutador", nivel: 54, preco: 4400, imagem: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png" }
+];
 
-    const ids = new Set();
-    while (ids.size < 10) {
-        ids.add(Math.floor(Math.random() * 1025) + 1);
-    }
+function gerarNovoLote() {
+    const embaralhado = [...catalogoPokemons].sort(() => Math.random() - 0.5);
+    const lote = embaralhado.slice(0, 10);
 
-    const promessas = Array.from(ids).map(async (id) => {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        const data = await res.json();
-        return {
-            id: data.id,
-            nome: data.name,
-            imagem: data.sprites.other['official-artwork'].front_default,
-            tipo: data.types[0].type.name,
-            nivel: Math.floor(Math.random() * 80) + 20,
-            preco: (Math.floor(Math.random() * 50) + 10) * 100
-        };
-    });
-
-    const lote = await Promise.all(promessas);
     localStorage.setItem('loteAtual', JSON.stringify(lote));
     renderizarCards(lote);
 }
@@ -85,7 +81,7 @@ function renderizarCards(lista) {
         card.innerHTML = `
             <span>#${poke.id} - Nv. ${poke.nivel}</span>
             <img src="${poke.imagem}" alt="${poke.nome}">
-            <h3>${poke.nome.toUpperCase()}</h3>
+            <h3>${poke.nome}</h3>
             <p>Tipo: ${poke.tipo}</p>
             <strong>R$ ${poke.preco}</strong>
             <button type="button" onclick="adicionarAoCarrinho(${poke.id})">Reservar</button>
@@ -95,4 +91,11 @@ function renderizarCards(lista) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', carregarVitrine);
+document.addEventListener('DOMContentLoaded', () => {
+    const loteSalvo = JSON.parse(localStorage.getItem('loteAtual'));
+    if (loteSalvo && loteSalvo.length > 0) {
+        renderizarCards(loteSalvo);
+    } else {
+        gerarNovoLote();
+    }
+});
