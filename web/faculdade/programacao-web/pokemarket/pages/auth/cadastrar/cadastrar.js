@@ -25,7 +25,7 @@ function cadastrar(){
     usuariosArcade.push({usuario:usuarioInput,senha:senhaInput});
     localStorage.setItem('clientes',JSON.stringify(usuariosArcade));
      alert('Usuário cadastrado com sucesso');
-     window.location.href='../../arcade/arcade.html';
+     window.location.href='../login/login.html';
 
    }else{
     alert('Usuário já cadastrado');

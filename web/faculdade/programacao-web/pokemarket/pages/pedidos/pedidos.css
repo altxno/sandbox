@@ -1,0 +1,33 @@
+button{
+    color: black;
+}
+
+.pagina-pedidos {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.pagina-pedidos h1 {
+    margin-bottom: 20px;
+}
+
+.pedido {
+    margin-bottom: 20px;
+    padding: 16px;
+    border: 1px solid white;
+}
+
+.pedido h2,
+.pedido p {
+    margin: 0 0 12px;
+}
+
+.pedido ul {
+    padding-left: 24px;
+}
+
+.pedido-total {
+    text-align: right;
+}

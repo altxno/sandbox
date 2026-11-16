@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastrarRocket.css">
+</head>
+
+<body>
+    <main class="cadastroPagina">
+
+        <div class="celadon">          
+            <h2 id="cadastro-top">Cadastro</h2>
+        </div>
+
+
+        <form id="cadastroForm" name="cadastroForm" action="#" onsubmit="cadastrar();return false" method="post">
+            <div class="loginCaixa">
+
+                <label for="usuário" class="labels">Novo Usuário</label>
+                <div class="inputLogin">
+                    <input type="text" id="userInput" name="usuario" required />
+                </div>
+
+                <label for="senha" class="labels">Senha</label>
+                <div class="inputLogin">
+                    <input type="password" id="senha" name="senha" minlength="8" maxlength="20" required />
+                </div>
+            </div>
+
+            <div class="submit">
+                <button type="submit" id="submitBtn" class="cadastro-btn">Cadastrar</button>
+            </div>
+            <div class="voltar">
+                <a href="../login/login.html" class="cadastro-btn">Voltar</a>
+            </div>
+
+
+        </form>
+
+    </main>
+
+    <script src="cadastrarRocket.js"></script>
+</body>
+
+</html>

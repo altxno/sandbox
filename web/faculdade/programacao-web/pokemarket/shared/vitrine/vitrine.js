@@ -54,22 +54,23 @@ const catalogoPokemons = [
 
 function adicionarAoCarrinho(idPokemon) {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    if (carrinho.length >= 100) {
+        window.alert('O limite é de 100 Pokémon por pedido.');
+        return;
+    }
+
     const pokemon = catalogoPokemons.find(function (item) {
         return item.id === idPokemon;
     });
 
-    const jaFoiReservado = carrinho.some(function (item) {
-        return item.id === idPokemon;
-    });
-
-    if (jaFoiReservado) {
-        alert('Esse Pokémon já está no carrinho.');
+    const confirmouReserva = window.confirm('Deseja reservar ' + pokemon.nome + '?');
+    if (!confirmouReserva) {
         return;
     }
 
     carrinho.push(pokemon);
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
-    alert(pokemon.nome + ' foi adicionado ao carrinho.');
 }
 
 

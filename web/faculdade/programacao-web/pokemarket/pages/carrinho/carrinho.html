@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="carrinho.css">
 </head>
 <body>
-    <header id="navbar"></header>
+    <header id="navbar" data-raiz="../../"></header>
 
     <main class="pagina-carrinho">
         <h1>Meu carrinho</h1>
@@ -30,6 +30,7 @@
         </div>
 
         <p class="total">Total: <strong id="totalCarrinho">R$ 0</strong></p>
+        <button type="button" class="finalizar-pedido" onclick="finalizarPedido()">Finalizar pedido</button>
         <a class="voltar-loja" href="../../index.html">Voltar à vitrine</a>
     </main>
 

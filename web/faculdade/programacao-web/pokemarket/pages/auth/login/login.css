@@ -5,6 +5,15 @@
     font-family: Helvetica;
     color: black;
 }
+#secreto{
+    width: 25px;
+    height: 20px;
+    left: 400px;
+    top: 160px;
+    position: fixed;
+    background-color: black;
+    border: none;
+}
 
 body {
     background-image: url(../../../assets/celadon);
