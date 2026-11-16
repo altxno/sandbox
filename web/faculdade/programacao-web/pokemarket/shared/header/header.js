@@ -11,16 +11,16 @@ function renderizarHeader() {
         <nav class="navbar-container">
             <div class="navbar-logo">
                 <div class="navbar-logoImg">
-                    <img src="assets/rocketLogo.png" alt="">
+                    <img src="/pokemarket/assets/rocketLogo.png" alt="">
                 </div>
-                <a href="index.html">Pokemarket</a>
+                <a href="/pokemarket/index.html">Pokemarket</a>
             </div>
 
             <ul class="navbar-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="carrinho.html">Carrinho</a></li>
-                <li><a href="pedidos.html">Pedidos</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="/pokemarket/index.html">Home</a></li>
+                <li><a href="/pokemarket/pages/carrinho/carrinho.html">Carrinho</a></li>
+                <li><a href="/pokemarket/pedidos.html">Pedidos</a></li>
+                <li><a href="/pokemarket/sobre.html">Sobre</a></li>
                 ${linkUsuario}
             </ul>
         </nav>

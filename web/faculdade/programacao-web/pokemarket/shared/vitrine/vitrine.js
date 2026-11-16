@@ -1,40 +1,4 @@
-function gerarNovoLote() {
-    const pokemonsEmbaralhados = [...catalogoPokemons];
-    pokemonsEmbaralhados.sort(() => Math.random() - 0.5);
-
-    const lote = pokemonsEmbaralhados.slice(0, 5);
-    localStorage.setItem('loteAtualPokemons', JSON.stringify(lote));
-    renderizarVitrine(lote);
-}
-
-function renderizarVitrine(pokemons) {
-    const vitrine = document.getElementById('vitrine');
-    vitrine.innerHTML = '';
-
-    pokemons.forEach(function (pokemon) {
-        const card = document.createElement('div');
-        card.className = 'card-pokemon';
-        card.innerHTML = `
-            <span>#${pokemon.id} - Nv. ${pokemon.nivel}</span>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" alt="${pokemon.nome}">
-            <h3>${pokemon.nome}</h3>
-            <p>Tipo: ${pokemon.tipo}</p>
-            <strong>R$ ${pokemon.preco}</strong>
-            <button type="button" onclick="adicionarAoCarrinho(${pokemon.id})">Reservar</button>
-        `;
-        vitrine.appendChild(card);
-    });
-}
-
-const loteSalvo = JSON.parse(localStorage.getItem('loteAtualPokemons'));
-
-if (loteSalvo && loteSalvo.length > 0) {
-    renderizarVitrine(loteSalvo.slice(0, 5));
-} else {
-    gerarNovoLote();
-}
-
-
+// Catálogo: cada objeto representa um Pokémon com número, nome, tipo, nível e preço.
 const catalogoPokemons = [
     { id: 1, nome: "Bulbasaur", tipo: "Grama/Venenoso", nivel: 18, preco: 1200 },
     { id: 2, nome: "Ivysaur", tipo: "Grama/Venenoso", nivel: 32, preco: 2200 },
@@ -87,3 +51,83 @@ const catalogoPokemons = [
     { id: 149, nome: "Dragonite", tipo: "Dragão/Voador", nivel: 70, preco: 6000 },
     { id: 150, nome: "Mewtwo", tipo: "Psíquico", nivel: 85, preco: 9500 }
 ];
+
+function adicionarAoCarrinho(idPokemon) {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const pokemon = catalogoPokemons.find(function (item) {
+        return item.id === idPokemon;
+    });
+
+    const jaFoiReservado = carrinho.some(function (item) {
+        return item.id === idPokemon;
+    });
+
+    if (jaFoiReservado) {
+        alert('Esse Pokémon já está no carrinho.');
+        return;
+    }
+
+    carrinho.push(pokemon);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    alert(pokemon.nome + ' foi adicionado ao carrinho.');
+}
+
+
+// Sorteia cinco Pokémon e mostra eles na vitrine.
+function gerarNovoLote() {
+    // Faz uma cópia para embaralhar sem mudar a ordem do catálogo original.
+    const pokemonsEmbaralhados = [...catalogoPokemons];
+    // Ordena os Pokémon de forma aleatória.
+    pokemonsEmbaralhados.sort(() => Math.random() - 0.5);
+
+    // Pega os cinco primeiros Pokémon depois do embaralhamento.
+    const lote = pokemonsEmbaralhados.slice(0, 5);
+    // Salva o lote no navegador para ele continuar igual ao atualizar a página.
+    // JSON.stringify transforma a lista em texto para o localStorage conseguir guardar.
+    localStorage.setItem('loteAtualPokemons', JSON.stringify(lote));
+    // Envia o lote para a função que cria os cards na tela.
+    renderizarVitrine(lote);
+}
+
+// Recebe uma lista de Pokémon e cria um card para cada um.
+function renderizarVitrine(pokemons) {
+    // Encontra na página o espaço onde os cards serão colocados.
+    const vitrine = document.getElementById('vitrine');
+    // Limpa o conteúdo anterior para não duplicar os cards.
+    vitrine.innerHTML = '';
+
+    // Repete este bloco uma vez para cada Pokémon da lista.
+    pokemons.forEach(function (pokemon) {
+        // Cria uma nova caixa HTML para o card.
+        const card = document.createElement('div');
+        // Adiciona a classe usada pelo CSS para dar estilo ao card.
+        card.className = 'card-pokemon';
+        // Coloca no card os dados do Pokémon. O número dele também monta o endereço da imagem.
+        card.innerHTML = `
+            <span>#${pokemon.id} - Nv. ${pokemon.nivel}</span>
+            <!-- O texto alternativo descreve a imagem para acessibilidade. -->
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" alt="${pokemon.nome}">
+            <h3>${pokemon.nome}</h3>
+            <p>Tipo: ${pokemon.tipo}</p>
+            <strong>R$ ${pokemon.preco}</strong>
+            <!-- O botão chama a função do carrinho passando o número do Pokémon. -->
+            <button type="button" onclick="adicionarAoCarrinho(${pokemon.id})">Reservar</button>
+        `;
+        // Coloca o card pronto dentro da vitrine da página.
+        vitrine.appendChild(card);
+    });
+}
+
+// Lê do navegador o lote que foi salvo anteriormente.
+// JSON.parse transforma o texto salvo de volta em uma lista JavaScript.
+const loteSalvo = JSON.parse(localStorage.getItem('loteAtualPokemons'));
+
+// Se já existe um lote salvo, mostra no máximo cinco Pokémon dele.
+if (loteSalvo && loteSalvo.length > 0) {
+    renderizarVitrine(loteSalvo.slice(0, 5));
+} else {
+    // Se ainda não existe lote salvo, sorteia um novo.
+    gerarNovoLote();
+}
+
+

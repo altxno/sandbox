@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Pokemarket</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../shared/header/header.css">
+    <link rel="stylesheet" href="carrinho.css">
+</head>
+<body>
+    <header id="navbar"></header>
+
+    <main class="pagina-carrinho">
+        <h1>Meu carrinho</h1>
+
+        <div class="tabela-carrinho">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pokémon</th>
+                        <th>Tipo</th>
+                        <th>Nível</th>
+                        <th>Preço</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="itensCarrinho"></tbody>
+            </table>
+        </div>
+
+        <p class="total">Total: <strong id="totalCarrinho">R$ 0</strong></p>
+        <a class="voltar-loja" href="../../index.html">Voltar à vitrine</a>
+    </main>
+
+    <script src="../../shared/header/header.js"></script>
+    <script src="carrinho.js"></script>
+</body>
+</html>

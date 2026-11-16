@@ -1,6 +1,6 @@
-const admin = [{ usuario: 'Giovanni', senha: 'PersianS2' }, { usuario: 'grunt', senha: '12341234' }, { usuario: 'grunt', senha: '12341234' }];
+const admin = [{ usuario: 'grunt', senha: '12341234' }, { usuario: 'grunt', senha: '12341234' }];
 localStorage.setItem('rocket', JSON.stringify(admin));
-const clientes = [{ usuario: 'Guilherme', senha: '12345678' }, { usuario: 'Altino', senha: '87654321' }, { usuario: 'user', senha: 'user' }];
+const clientes = [{ usuario: 'Guilherme', senha: '12345678' }, { usuario: 'Altino', senha: '87654321' }];
 localStorage.setItem('clientes', JSON.stringify(clientes));
 
 function logar() {
