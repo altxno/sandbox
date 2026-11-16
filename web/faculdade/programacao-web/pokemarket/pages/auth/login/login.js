@@ -1,6 +1,6 @@
-const admin = [{ usuario: 'Giovanni', senha: 'PersianS2' }, { usuario: 'grunt', senha: '12341234' }]; 
+const admin = [{ usuario: 'Giovanni', senha: 'PersianS2' }, { usuario: 'grunt', senha: '12341234' }, { usuario: 'grunt', senha: '12341234' }];
 localStorage.setItem('rocket', JSON.stringify(admin));
-const clientes = [{ usuario: 'Guilherme', senha: '12345678' }, { usuario: 'Altino', senha: '87654321' }]; 
+const clientes = [{ usuario: 'Guilherme', senha: '12345678' }, { usuario: 'Altino', senha: '87654321' }, { usuario: 'user', senha: 'user' }];
 localStorage.setItem('clientes', JSON.stringify(clientes));
 
 function logar() {
@@ -16,17 +16,19 @@ function logar() {
    for(var usersLocal of usuariosRocket){
       if (usuarioInput == usersLocal.usuario && senhaInput == usersLocal.senha) {
          logado = true
+         sessionStorage.setItem('usuarioLogado', JSON.stringify({ nome: usersLocal.usuario }));
          window.location.href = "../../../index.html";
-      };
+      }
    }
    for(var usersLocal of usuariosArcade){
       if (usuarioInput == usersLocal.usuario && senhaInput == usersLocal.senha) {
          logado = true
+         sessionStorage.setItem('usuarioLogado', JSON.stringify({ nome: usersLocal.usuario }));
          window.location.href = "../../arcade/arcade.html";
-      };
+      }
    }
    if(!logado){
       alert("Usuário ou senha incorretos");
-   };
+   }
 
-};
+}

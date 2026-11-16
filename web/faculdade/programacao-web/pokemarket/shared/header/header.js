@@ -1,48 +1,39 @@
-// ----------------------------------HEADER------------------------------------------
 function renderizarHeader() {
-
     const header = document.getElementById('navbar');
-    if (!header) {
-        return;
-    }
     const usuarioLogado = JSON.parse(sessionStorage.getItem('usuarioLogado'));
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const linkUsuario = usuarioLogado ?
+        `<li>Agente: ${usuarioLogado.nome}</li> 
+        <li><button type="button" id="btn-logout">Sair</button></li>`
+        :
+        `<li><a href="/pokemarket/pages/auth/login/login.html">Login</a></li>`;
 
     header.innerHTML = `
         <nav class="navbar-container">
-        
-            <div class="navbar-logo"> 
-                <div class="navbar-logoImg"> 
+            <div class="navbar-logo">
+                <div class="navbar-logoImg">
                     <img src="assets/rocketLogo.png" alt="">
-                </div>      
-                <a href="index.html">
-                    Pokemarket
-                </a>
+                </div>
+                <a href="index.html">Pokemarket</a>
             </div>
-        
+
             <ul class="navbar-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="carrinho.html">Carrinho</a></li>
                 <li><a href="pedidos.html">Pedidos</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
-                <li class="navbar-auth">
-                    ${usuarioLogado
-        ? `Agente: ${usuarioLogado.nome} <button type="button" id="btn-logout">Sair</button>`
-        : `<a href="/pokemarket/pages/auth/login/login.html" class="btn-login">Login</a>`
-    }
-                </li>
+                ${linkUsuario}
             </ul>
-        
         </nav>
-    `
+    `;
 
-    const btnLogout = document.getElementById('btn-logout');
-    if (btnLogout) {
-        btnLogout.addEventListener('click', () => {
+    const botaoSair = document.getElementById('btn-logout');
+
+    if (botaoSair) {
+        botaoSair.addEventListener('click', function () {
             sessionStorage.removeItem('usuarioLogado');
-            window.location.href = '/pokemarket/pages/auth/login/login.html';
+            window.location.href = '/pokemarket/index.html';
         });
     }
 }
-document.addEventListener('DOMContentLoaded', renderizarHeader);
-// ---------------------------------------------------------------------------------
+
+renderizarHeader();
