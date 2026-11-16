@@ -3,65 +3,100 @@ package ado3.ex1;
 import java.util.Scanner;
 
 public class AppCarteira {
+    private static double limite = 1000.00;
+    private static Scanner sc = new Scanner(System.in);
 
-    static Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        System.out.print("Nome do titular da carteira 1: ");
+        CarteiraDigital c1 = new CarteiraDigital(sc.nextLine(), limite);
+        System.out.print("Nome do titular da carteira 2: ");
+        CarteiraDigital c2 = new CarteiraDigital(sc.nextLine(), limite);
 
-    static void main() {
+        int opcao;
+        do {
+            exibirMenu();
+            opcao = sc.nextInt();
 
-        boolean auth = true;
-        while (auth){
-            System.out.println("""
-                    1. Criar carteira
-                    2. Depositar
-                    3. Sacar
-                    4. Transferir
-                    5. Consultar saldo
-                    6. Extrato
-                    ----------------------
-                    0. SAIR
-                    """);
-        }
+            switch (opcao) {
+                case 1: depositar(c1, c2); break;
+                case 2: sacar(c1, c2); break;
+                case 3: transferir(c1, c2); break;
+                case 4: consultarSaldo(c1, c2); break;
+                case 5: verExtrato(c1, c2); break;
+                case 0: break;
+                default: System.out.println("Opção inválida.");
+            }
+        } while (opcao != 0);
 
-        int opcao = sc.nextInt();
-        switch (opcao) {
-            case 1:
-            case 2: CarteiraDigital depositar();
-            case 0: auth = false;
+        System.out.println("Programa encerrado.");
+    }
+
+    private static void exibirMenu() {
+        System.out.println("\n1. Depositar");
+        System.out.println("2. Sacar");
+        System.out.println("3. Transferir");
+        System.out.println("4. Consultar saldo");
+        System.out.println("5. Ver extrato");
+        System.out.println("0. Sair");
+        System.out.print("Escolha uma opção: ");
+    }
+
+    private static CarteiraDigital escolherCarteira(CarteiraDigital c1, CarteiraDigital c2) {
+        System.out.print("Qual carteira está agindo (1 ou 2)? ");
+        int escolha = sc.nextInt();
+        switch (escolha) {
+            case 1: return c1;
+            case 2: return c2;
+            default:
+                System.out.println("Carteira inválida.");
+                return null;
         }
     }
 
-}
+    private static void depositar(CarteiraDigital c1, CarteiraDigital c2) {
+        CarteiraDigital c = escolherCarteira(c1, c2);
+        if (c == null) return;
+        System.out.print("Valor: R$ ");
+        double valor = sc.nextDouble();
+        resultado(c.depositar(valor), valor);
+    }
 
-//Exercício 1 — Carteira Digital
-//Situação
-//Pagamentos instantâneos pelo celular fazem parte do dia a dia: transferir dinheiro para um amigo, dividir a conta do restaurante, pagar um lanche. Uma startup de pagamentos precisa construir o núcleo de uma carteira digital. Esse núcleo precisa garantir que o saldo nunca fique negativo e que todo movimento fique registrado em um extrato, sem que nenhuma outra parte do sistema consiga alterar o saldo "por fora".
-//Objetivo de aprendizagem
-//Aplicar encapsulamento para proteger dados críticos (o saldo) e implementar um TAD cujas operações validam suas próprias regras.
-//Especificação do TAD CarteiraDigital
-//Dados (todos private):
-//Dado	Descrição
-//titular	Nome do dono da carteira
-//saldo	Valor disponível na carteira
-//limitePorOperacao	Valor máximo permitido em uma única operação
-//extrato	Array com as últimas 10 movimentações
-//quantidadeMovimentos	Quantas posições do extrato estão ocupadas
-//Operações (todas public):
-//Operação	O que faz	Pré-condições (se falharem, devolve false)
-//CarteiraDigital(titular, limitePorOperacao)	Cria a carteira com saldo zero	Limite maior que zero
-//depositar(valor)	Soma o valor ao saldo e registra no extrato	valor > 0 e valor <= limitePorOperacao
-//sacar(valor)	Subtrai do saldo e registra no extrato	valor > 0, valor <= limitePorOperacao e saldo suficiente
-//transferir(destino, valor)	Retira da carteira atual e deposita na carteira destino, registrando nas duas	As mesmas do saque, e destino não pode ser nulo nem a própria carteira
-//consultarSaldo()	Devolve o saldo atual	Nenhuma
-//listarExtrato()	Devolve um texto com as movimentações, da mais antiga para a mais recente	Nenhuma
-//Regra do extrato: guarda apenas as 10 últimas movimentações. Quando estiver cheio, a mais antiga é descartada para abrir espaço para a nova. Operações que falharam não aparecem no extrato.
-//Classes a implementar
-//Classe	Papel
-//Movimentacao	Representa uma linha do extrato: tipo (ex.: "DEPÓSITO"), valor e métodos de leitura, mais um toString() legível
-//CarteiraDigital	O TAD, conforme a especificação acima
-//AppCarteira	Programa principal, com main e menu
-//Programa principal
-//O programa deve:
-//        1. Criar duas carteiras (nomes dos titulares informados pelo usuário, limite de R$ 1.000,00 cada).
-//        2. Exibir um menu que se repete até o usuário sair, com as opções: depositar, sacar, transferir, consultar saldo, ver extrato e sair.
-//    3. Em cada operação, perguntar qual carteira (1 ou 2) está agindo. Na transferência, a outra carteira é o destino.
-//    4. Informar claramente quando uma operação for recusada e o motivo (valor inválido, acima do limite ou saldo insuficiente).
+    private static void sacar(CarteiraDigital c1, CarteiraDigital c2) {
+        CarteiraDigital c = escolherCarteira(c1, c2);
+        if (c == null) return;
+        System.out.print("Valor: R$ ");
+        double valor = sc.nextDouble();
+        resultado(c.sacar(valor), valor);
+    }
+
+    private static void transferir(CarteiraDigital c1, CarteiraDigital c2) {
+        CarteiraDigital origem = escolherCarteira(c1, c2);
+        if (origem == null) return;
+        CarteiraDigital destino = (origem == c1) ? c2 : c1;
+        System.out.print("Valor: R$ ");
+        double valor = sc.nextDouble();
+        resultado(origem.transferir(destino, valor), valor);
+    }
+
+    private static void consultarSaldo(CarteiraDigital c1, CarteiraDigital c2) {
+        CarteiraDigital c = escolherCarteira(c1, c2);
+        if (c != null) System.out.printf("Saldo: R$ %.2f%n", c.consultarSaldo());
+    }
+
+    private static void verExtrato(CarteiraDigital c1, CarteiraDigital c2) {
+        CarteiraDigital c = escolherCarteira(c1, c2);
+        if (c != null) System.out.println("Extrato:\n" + c.listarExtrato());
+    }
+
+    private static void resultado(boolean sucesso, double valor) {
+        if (sucesso) {
+            System.out.println("Operação realizada com sucesso.");
+        } else if (valor <= 0) {
+            System.out.println("Operação recusada: o valor precisa ser maior que zero.");
+        } else if (valor > limite) {
+            System.out.println("Operação recusada: o limite por operação é R$ 1000,00.");
+        } else {
+            System.out.println("Operação recusada: saldo insuficiente.");
+        }
+    }
+}
