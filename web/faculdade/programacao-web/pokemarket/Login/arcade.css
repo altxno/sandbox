@@ -1,0 +1,121 @@
+/*
+* font-family: 'Roboto', sans-serif;
+* font-weight: 100, 400, 400-italic, 700;
+*/
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-weight: 400;
+}
+
+section {
+    padding: 90px 15px;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #403eaf;
+}
+
+.banner h1 {
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.banner p {
+    color: #ffffff;
+    font-size: 200%;
+    letter-spacing: 1.5px;
+    font-weight: 100;
+    text-shadow: 4px 4px 4px #222222;
+    font-family: Tahoma;
+}
+
+.primeiro {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(#403eaf 0%, #9fd6f1 74%);
+}
+
+.primeiro .container {
+    border: 2px solid rgb(145, 183, 233);
+    backdrop-filter: blur(10px);
+    box-shadow: grey;
+    padding: 3rem 2.5rem;
+    border-radius: 1rem; 
+}
+
+.primeiro p {
+    font-size: larger;
+}
+
+.segundo {
+    background-image: url(Imagens/celadon);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.segundo p {
+    font-size: large;
+}
+
+.segundo .container {
+    max-width: 1100px;
+    border: 2px solid rgb(145, 183, 233);
+    backdrop-filter: blur(10px);
+    box-shadow: grey;
+    padding: 3rem 2.5rem;
+    border-radius: 1rem;
+
+}
+
+.voltar {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.voltar a {
+    text-decoration: none;
+}
+
+.cadastro-btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: rgb(145, 183, 233);
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    color: black;
+    width: 20%;
+}
+
+.cadastro-btn:hover {
+    background-color: black;
+    color: white;
+}

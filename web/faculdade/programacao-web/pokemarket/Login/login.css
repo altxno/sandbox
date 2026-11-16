@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    color: black;
+}
+
+body {
+    background-image: url(Imagens/celadon);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.celadon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginPagina {
+    border: 2px solid rgb(145, 183, 233);
+    backdrop-filter: blur(10px);
+    box-shadow: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2.5rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 450px;
+}
+
+
+.loginPagina form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.loginPagina input[type="text"],
+.loginPagina input[type="password"],
+.loginPagina input[type="email"] {
+    background: transparent;
+    border: 2px solid rgb(145, 183, 233); 
+    font-size: 1rem; 
+    box-shadow: grey;
+    padding-left: 1.5rem;
+    padding-right: 4rem;
+    width: 100%;
+    height: 3.2rem;
+    border-radius: 1rem;
+    margin: 0.25rem 0;
+}
+
+.loginPagina input:focus {
+    outline: none;
+    border: 2px solid rgb(145, 183, 233);
+    box-shadow: grey;
+}
+
+.loginPagina h2{
+    color: rgb(51, 51, 51);
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.esqueceu {
+    display: flex;
+    margin-top: 1rem;
+    justify-content:center;
+    width: 100%;
+}
+
+.esqueceu a {
+    text-decoration: none;
+}
+
+.login-btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: rgb(145, 183, 233);
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cadastro {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cadastro a {
+    text-decoration: none;
+}
+
+
+.login-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+
+

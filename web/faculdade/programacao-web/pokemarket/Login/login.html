@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <main class="loginPagina">
+
+        <div class="celadon">
+            <img src="Imagens/gameCenterLogo.png" alt="logo celadon game corner">
+            <img src="Imagens/arcade.png" alt="">
+            <br>
+            <h2 id="login-top">Login</h2>
+        </div>
+
+
+        <form id="loginForm" name="loginForm"  action="#" onsubmit="logar();return false" method="post">
+            <div class="loginCaixa">
+
+                <label for="usuário" class="labels">Usuário</label>
+                <div class="inputLogin">
+                    <input type="text" name="usuario" required/>                   
+                </div>
+
+                <label for="senha" class="labels">Senha</label>
+                <div class="inputLogin">
+                    <input type="password" id="senha" name="senha" minlength="8" maxlength="20" required/>             
+                </div>
+            </div>
+
+            <div class="esqueceu">
+                <a href="#">Esqueceu a Senha?</a>
+            </div>
+
+            <div class="submit">
+                <button type="submit" id="submitBtn" class="login-btn">Login</button>
+            </div>
+        </form>
+
+        <div class="cadastro">
+            <a href="cadastrar.html" >Cadastrar Novo Usuário</a>
+        </div>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
