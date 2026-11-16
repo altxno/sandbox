@@ -1,0 +1,41 @@
+/*--------------------VITRINE-------------------*/
+.main-container {
+    margin: 20px auto;
+    padding: 15px 20px;
+    outline: 1px solid black;
+}
+
+.barra-lote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    outline: 1px darkred solid;
+}
+
+.grid-cartas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card-pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    outline: 1px darkred solid ;
+    background-color: rgba(173, 33, 0, 0.5);
+}
+
+.card-pokemon img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+button{
+    color: black;
+}
+
+/*----------------------------------------------*/

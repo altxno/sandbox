@@ -70,7 +70,7 @@ section {
 }
 
 .segundo {
-    background-image: url(Imagens/celadon);
+    background-image: url(../../assets/celadon);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

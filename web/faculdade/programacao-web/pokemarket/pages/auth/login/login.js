@@ -16,13 +16,13 @@ function logar() {
    for(var usersLocal of usuariosRocket){
       if (usuarioInput == usersLocal.usuario && senhaInput == usersLocal.senha) {
          logado = true
-         window.location.href = "../index.html";
+         window.location.href = "../../../index.html";
       };
    }
    for(var usersLocal of usuariosArcade){
       if (usuarioInput == usersLocal.usuario && senhaInput == usersLocal.senha) {
          logado = true
-         window.location.href = "arcade.html";
+         window.location.href = "../../arcade/arcade.html";
       };
    }
    if(!logado){
