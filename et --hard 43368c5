@@ -1,0 +1,35 @@
+[33me62452d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m43368c5[m HEAD@{1}: commit: wip
+[33m1220465[m HEAD@{2}: commit: wip
+[33m94c4e1c[m HEAD@{3}: reset: moving to origin/main
+[33m8dbd240[m HEAD@{4}: commit: ado 3
+[33m602080b[m HEAD@{5}: pull: Fast-forward
+[33m187fc97[m HEAD@{6}: pull: Fast-forward
+[33m570fcbf[m HEAD@{7}: commit: wip
+[33m5661573[m HEAD@{8}: pull: Fast-forward
+[33m3771322[m HEAD@{9}: pull --rebase (finish): returning to refs/heads/main
+[33m3771322[m HEAD@{10}: pull --rebase (pick): wip
+[33ma25ee48[m HEAD@{11}: pull --rebase (pick): wip
+[33m66a0d98[m HEAD@{12}: pull --rebase (start): checkout 66a0d9846c33cef8da87a62a65c9bc4371afe4f9
+[33me51cd97[m HEAD@{13}: commit: wip
+[33m8080242[m HEAD@{14}: commit: wip
+[33mfea687a[m HEAD@{15}: commit: termina ado 4 de programacao web
+[33ma501440[m HEAD@{16}: commit: termina mais exercicios de filtragem e condicional sql
+[33m1803c26[m HEAD@{17}: pull: Fast-forward
+[33mbe4892d[m HEAD@{18}: commit: wip
+[33mc487d49[m HEAD@{19}: commit: ado de ts
+[33m30e5ef9[m HEAD@{20}: commit: inicia angular
+[33m5716512[m HEAD@{21}: pull: Fast-forward
+[33m9e59b6a[m HEAD@{22}: commit: bubble e insertion sort
+[33me410256[m HEAD@{23}: pull: Fast-forward
+[33ma196412[m HEAD@{24}: commit: wip
+[33m4bd1c4c[m HEAD@{25}: commit: adiciona dbs sqlite
+[33m7e9e5c9[m HEAD@{26}: commit: ado3
+[33mc443f96[m HEAD@{27}: commit: aula11-09
+[33m6df5e29[m HEAD@{28}: commit: aula 09-09
+[33m2b44c34[m HEAD@{29}: pull: Fast-forward
+[33m41f04f5[m HEAD@{30}: commit: wip
+[33m4e8b185[m HEAD@{31}: commit: aula-02-09-26
+[33m9b66d04[m HEAD@{32}: pull: Fast-forward
+[33mf752d0e[m HEAD@{33}: commit: aula 01-09-26
+[33mb859be8[m HEAD@{34}: clone: from https://github.com/altxno/sandbox
