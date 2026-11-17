@@ -1,0 +1,189 @@
+/* ---------- GLOBAL ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #f3eeee;
+    background: #171719;
+}
+
+a {
+    color: #ed3946;
+}
+
+/* ---------- HEADER ---------- */
+.cabecalho {
+    min-height: 76px;
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #0c0c0e;
+    border-bottom: 1px solid #b51f2b;
+    color: white;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.marca img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+}
+
+nav a, nav span {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 2px;
+    background: #b51f2b;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ---------- VITRINE ---------- */
+.conteudo {
+    width: min(1100px, 92%);
+    margin: 36px auto;
+}
+
+.introducao {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.introducao h1, h1 {
+    color: #f6f1f1;
+}
+
+.vitrine {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-pokemon {
+    width: 200px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #454246;
+    border-radius: 2px;
+    background: #222124;
+    text-align: center;
+}
+
+.card-pokemon img {
+    width: 135px;
+    height: 135px;
+    object-fit: contain;
+}
+
+.card-pokemon h2, .card-pokemon p {
+    margin: 0;
+}
+
+.card-pokemon strong {
+    color: #ff6871;
+}
+
+/* ---------- LOGIN E CADASTRO ---------- */
+.formulario {
+    width: min(420px, 92%);
+    margin: 55px auto;
+    padding: 28px;
+    border: 1px solid #454246;
+    border-radius: 2px;
+    background: #222124;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario input {
+    margin-bottom: 8px;
+    padding: 11px;
+    border: 1px solid #555;
+    border-radius: 2px;
+    background: #171719;
+    color: white;
+}
+
+/* ---------- CARRINHO ---------- */
+.tabela {
+    overflow-x: auto;
+    border: 1px solid #454246;
+    border-radius: 2px;
+    background: #222124;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #464246;
+    text-align: left;
+}
+
+th {
+    color: #ff6871;
+}
+
+.total {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ---------- PEDIDOS ---------- */
+.lista-pedidos {
+    display: grid;
+    gap: 16px;
+}
+
+.pedido {
+    padding: 18px;
+    border: 1px solid #454246;
+    border-left: 2px solid #b51f2b;
+    border-radius: 2px;
+    background: #222124;
+}
+
+.pedido h2 {
+    margin-top: 0;
+    color: #ff6871;
+}
+

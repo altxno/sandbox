@@ -53,7 +53,9 @@ const catalogoPokemons = [
 ];
 
 function adicionarAoCarrinho(idPokemon) {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const usuarioLogado = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+    const chaveCarrinho = usuarioLogado ? 'carrinho_' + usuarioLogado.nome : 'carrinho_convidado';
+    const carrinho = JSON.parse(localStorage.getItem(chaveCarrinho)) || [];
 
     if (carrinho.length >= 100) {
         window.alert('O limite é de 100 Pokémon por pedido.');
@@ -70,7 +72,7 @@ function adicionarAoCarrinho(idPokemon) {
     }
 
     carrinho.push(pokemon);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    localStorage.setItem(chaveCarrinho, JSON.stringify(carrinho));
 }
 
 

@@ -9,12 +9,14 @@
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- pre-carrega as fontes do google -->
 </head>
 
 <body>
-
+<!--tag que vai ser injetada via .js, o "data-raiz" identifica quantos niveis precisam voltar para chegar na raiz, atributo utilizado no js para consertar erro de caminho-->
     <header id="navbar" data-raiz=""></header>
 
+<!--caixas simples para definir a caixa principal e a barra do lote-->
     <main class="main-container">
         <section class="barra-lote">
             <div>
@@ -24,6 +26,7 @@
             <button type="button" id="atualizar" onclick="gerarNovoLote()">Atualizar</button>
         </section>
 
+<!-- vitrine injetada via js-->
         <section id="vitrine" class="grid-cartas">
             <p>Carregando....</p>
         </section>

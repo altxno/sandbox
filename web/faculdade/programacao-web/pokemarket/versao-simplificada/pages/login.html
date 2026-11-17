@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar | Pokemarket</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js" defer></script>
+</head>
+
+<body>
+
+<header class="cabecalho"><a class="marca" href="../index.html"><img src="../assets/rocketLogo.png"
+                                                                     alt="Logo Pokemarket"><span>Pokemarket</span></a>
+    <nav>
+        <a href="../index.html">Início</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="pedidos.html">Pedidos</a>
+        <a id="linkLogin" href="login.html">Entrar</a>
+        <a id="nomeUsuario" href="editar-conta.html" hidden></a>
+        <button id="botaoSair" type="button" hidden>Sair</button>
+    </nav>
+</header>
+
+<main class="formulario">
+    <h1>Entrar</h1>
+    <form onsubmit="logar(); return false;">
+        <label for="usuario">Usuário</label>
+        <input id="usuario" minlength="8" maxlength="67" required>
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" minlength="8" maxlength="67" required>
+        <button type="submit">Entrar</button>
+    </form>
+    <p>Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p></main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Pokemarket</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js" defer></script>
+</head>
+
+<body>
+
+<header class="cabecalho"><a class="marca" href="../index.html"><img src="../assets/rocketLogo.png"
+                                                                     alt="Logo Pokemarket"><span>Pokemarket</span></a>
+    <nav>
+        <a href="../index.html">Início</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="pedidos.html">Pedidos</a>
+        <a id="linkLogin" href="login.html">Entrar</a>
+        <a id="nomeUsuario" href="editar-conta.html" hidden></a>
+        <button id="botaoSair" type="button" hidden>Sair</button>
+    </nav>
+</header>
+<main class="conteudo">
+    <h1>Seu carrinho</h1>
+    <div class="tabela">
+        <table>
+            <thead>
+            <tr>
+                <th>Pokémon</th>
+                <th>Tipo</th>
+                <th>Nível</th>
+                <th>Preço</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="itensCarrinho"></tbody>
+        </table>
+    </div>
+    <p class="total">Total: <span id="totalCarrinho">R$ 0</span></p>
+    <button onclick="finalizarPedido()">Finalizar pedido</button>
+</main>
+</body>
+</html>

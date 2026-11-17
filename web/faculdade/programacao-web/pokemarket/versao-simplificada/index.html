@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+
+<body>
+
+<header class="cabecalho">
+    <a class="marca" href="index.html"><img src="assets/rocketLogo.png"
+                                            alt="Logo Pokemarket"><span>Pokemarket</span></a>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="pages/carrinho.html">Carrinho</a>
+        <a href="pages/pedidos.html">Pedidos</a>
+        <a id="linkLogin" href="pages/login.html">Entrar</a>
+        <a id="nomeUsuario" href="pages/editar-conta.html" hidden></a>
+        <button id="botaoSair" type="button" hidden>Sair</button>
+    </nav>
+</header>
+
+<main class="conteudo">
+    <section class="introducao"><h1>Mercado de Pokémons...</h1>
+        <p>Escolha com sabedoria... MÁX 10 por pedido</p>
+        <button type="button" onclick="sortearPokemons()">Sortear outros Pokémon</button>
+    </section>
+    <section id="vitrine" class="vitrine" aria-label="Pokémon disponíveis"></section>
+</main>
+
+</body>
+
+</html>

@@ -1,5 +1,16 @@
+function obterChaveCarrinho() {
+    const usuarioLogado = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+    return usuarioLogado ? 'carrinho_' + usuarioLogado.nome : 'carrinho_convidado';
+}
+
+function obterChavePedidos() {
+    const usuarioLogado = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+    return usuarioLogado ? 'pedidos_' + usuarioLogado.nome : 'pedidos_convidado';
+}
+
 function mostrarCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const chaveCarrinho = obterChaveCarrinho();
+    const carrinho = JSON.parse(localStorage.getItem(chaveCarrinho)) || [];
     const itensCarrinho = document.getElementById('itensCarrinho');
     const totalCarrinho = document.getElementById('totalCarrinho');
 
@@ -18,24 +29,26 @@ function mostrarCarrinho() {
             <td>${pokemon.nome}</td>
             <td>${pokemon.tipo}</td>
             <td>${pokemon.nivel}</td>
-            <td>R$ ${pokemon.preco.toLocaleString('pt-BR')}</td>
+            <td>R$ ${pokemon.preco}</td>
             <td><button type="button" onclick="removerDoCarrinho(${indice})">Remover</button></td>
         `;
         itensCarrinho.appendChild(linha);
     });
 
-    totalCarrinho.textContent = 'R$ ' + total.toLocaleString('pt-BR');
+    totalCarrinho.textContent = 'R$ ' + total;
 }
 
 function removerDoCarrinho(indice) {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const chaveCarrinho = obterChaveCarrinho();
+    const carrinho = JSON.parse(localStorage.getItem(chaveCarrinho)) || [];
     carrinho.splice(indice, 1);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    localStorage.setItem(chaveCarrinho, JSON.stringify(carrinho));
     mostrarCarrinho();
 }
 
 function finalizarPedido() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const chaveCarrinho = obterChaveCarrinho();
+    const carrinho = JSON.parse(localStorage.getItem(chaveCarrinho)) || [];
 
     if (carrinho.length === 0) {
         alert('Seu carrinho está vazio.');
@@ -47,7 +60,8 @@ function finalizarPedido() {
         return;
     }
 
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    const chavePedidos = obterChavePedidos();
+    const pedidos = JSON.parse(localStorage.getItem(chavePedidos)) || [];
     const total = carrinho.reduce(function (soma, pokemon) {
         return soma + pokemon.preco;
     }, 0);
@@ -58,8 +72,8 @@ function finalizarPedido() {
         total: total
     });
 
-    localStorage.setItem('pedidos', JSON.stringify(pedidos));
-    localStorage.removeItem('carrinho');
+    localStorage.setItem(chavePedidos, JSON.stringify(pedidos));
+    localStorage.removeItem(chaveCarrinho);
     window.location.href = '../pedidos/pedidos.html';
 }
 

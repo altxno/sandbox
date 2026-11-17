@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar conta | Pokemarket</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts.js" defer></script>
+</head>
+<body>
+<header class="cabecalho">
+    <a class="marca" href="../index.html"><img src="../assets/rocketLogo.png"
+                                               alt="Logo Pokemarket"><span>Pokemarket</span></a>
+    <nav>
+        <a href="../index.html">Início</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="pedidos.html">Pedidos</a>
+        <a id="linkLogin" href="login.html">Entrar</a>
+        <a id="nomeUsuario" href="editar-conta.html" hidden></a>
+        <button id="botaoSair" type="button" hidden>Sair</button>
+    </nav>
+</header>
+<main class="formulario">
+    <h1>Editar conta</h1>
+    <form onsubmit="editarConta(); return false;">
+        <label for="novoUsuario">Nome de usuário</label>
+        <input id="novoUsuario" minlength="8" maxlength="67" required>
+        <label for="novaSenha">Nova senha</label>
+        <input id="novaSenha" type="password" minlength="8" maxlength="67" placeholder="Deixe em branco para manter a senha atual">
+        <button type="submit">Salvar alterações</button>
+    </form>
+    <p>Se não quiser trocar a senha, deixe o campo vazio...</p>
+</main>
+</body>
+</html>
